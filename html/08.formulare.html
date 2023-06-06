@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulare</title>
+
+    <style>
+        #das-frame {
+            height: 50vh;
+            width: 80vh;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Formulare</h1>
+    <a href="08.formulare.html">Seite neu laden</a>
+    <form method="get" action="http://localhost/request.php" target="mein-frame">
+        <pre>
+            Vorname <input type="text" name="Vorname">
+            Nachname <input type="text" name="Nachname">
+            Postleitzahl <input type="text" name="plz" pattern="[0-9]{5}" title="5 Ziffern">
+
+            Kommentar <textarea name="kommentar" id="comment" cols="30" rows="10"></textarea>
+            Farben <select name="farbe">
+                <option disabled selected>Bitte auswählen</option>
+                <option value="F00">rot</option>
+                <option>blau</option>
+                <option>grün</option>
+            </select>
+            <input type="submit" name="senden" value="Senden">
+        </pre>
+    </form>
+    <iframe src="" name="mein-frame" id="das-frame"></iframe>
+
+</body>
+
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selektoren</title>
+
+    <link rel="stylesheet" href="global.css">
+
+    <style>
+        div {
+            border: 1px solid;
+            padding: 0.5em;
+            /* em = Wert vom Eltern-Element */
+            margin-top: 0.5rem;
+            /* rem = Wert vom Root-Wert (html) */
+        }
+
+        body {
+            font-family: verdana;
+
+        }
+
+        #content {
+            background: lightblue;
+        }
+
+        .klasse {
+            background: lightpink;
+        }
+
+        .fett {
+            font-weight: bold;
+        }
+
+        .nachfahren span {
+            color: blue;
+        }
+
+        /* Kind Selektor */
+        .nachfahren>span {
+            background-color: lightblue;
+        }
+
+        .attribut a {
+            text-decoration: none;
+        }
+
+        .attribut a[href$=".xls"]::before {
+            content: url(../img/xls.png)" ";
+            
+        }
+
+        .tbl tbody td:nth-child(3) {
+            text-align: right;
+        }
+        
+
+
+
+    </style>
+
+</head>
+
+<body>
+    <h1>Sellektoren</h1>
+
+    <div>
+        <table class="tbl">
+            <caption>Überschrift</caption>
+            <thead>
+                <tr>
+                    <th>Head 1</th>
+                    <th>Head 2</th>
+                    <th>Head 3</th>
+                    <th>Head 4</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Inhalt 1</td>
+                    <td>Inhalt 2</td>
+                    <td>1.234,56€</td>
+                    <td>Inhalt 4</td>
+                </tr>
+                <tr>
+                    <td>Inhalt 1</td>
+                    <td>Inhalt 2</td>
+                    <td>14,56€</td>
+                    <td>Inhalt 4</td>
+                </tr>
+                <tr>
+                    <td>Inhalt 1</td>
+                    <td>Inhalt 2</td>
+                    <td>34,56€</td>
+                    <td>Inhalt 4</td>
+                </tr>
+                <tr>
+                    <td>Inhalt 1</td>
+                    <td>Inhalt 2</td>
+                    <td>234,56€</td>
+                    <td>Inhalt 4</td>
+                </tr>
+                <tr>
+                    <td>Inhalt 1</td>
+                    <td>Inhalt 2</td>
+                    <td>4,56€</td>
+                    <td>Inhalt 4</td>
+                </tr>
+                <tr>
+                    <td>Inhalt 1</td>
+                    <td>Inhalt 2</td>
+                    <td>0,56€</td>
+                    <td>Inhalt 4</td>
+                </tr>
+                <tr>
+                    <td>Inhalt 1</td>
+                    <td>Inhalt 2</td>
+                    <td>0,06€</td>
+                    <td>Inhalt 4</td>
+                </tr>
+                <tr>
+                    <td>Inhalt 1</td>
+                    <td>Inhalt 2</td>
+                    <td>234,56€</td>
+                    <td>Inhalt 4</td>
+                </tr>
+                <tr>
+                    <td>Inhalt 1</td>
+                    <td>Inhalt 2</td>
+                    <td>534,56€</td>
+                    <td>Inhalt 4</td>
+                </tr>
+                <tr>
+                    <td>Inhalt 1</td>
+                    <td>Inhalt 2</td>
+                    <td>11.234,56€</td>
+                    <td>Inhalt 4</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td><b>Foot 1</b></td>
+                    <td><b>Foot 2</b></td>
+                    <td><b>Foot 3</b></td>
+                    <td><b>Foot 4</b></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+
+    <div>
+        Element Selekotor
+    </div>
+
+    <div id="content">ID Selekotor</div>
+
+    <div class="klasse">Klassen Selektor 1</div>
+    <div class="klasse fett">Klassen Selektor 2</div>
+
+    <span>span im body</span>
+
+    <div class="nachfahren">
+        div.nachfahren
+        <span>span in .nachfahren</span>
+        <p>
+            Absatz mit p in .nachfahren
+            <span>span im Absatz</span>
+        </p>
+        <span>span in .nachfahren</span>
+    </div>
+
+    <div class="attribut">
+        Attribut Selektor
+        <p>
+            <a href="#datei.xls">Excel-Datei</a>
+        </p>
+        <p>
+            <a href="#irgendwas">Irgendein-Link</a>
+        </p>
+    </div>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    
+
+
+</body>
+
+</html>

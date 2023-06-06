@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block- un Inline-Elemente</title>
+</head>
+<body>
+<font face="arial"> <!-- deprecated -->
+    <h1>Block- un Inline-Elemente</h1>
+    <h2>Block Elemente<h2> <!-- Block Element nimm ganze Zeile in anspruch-->
+    <h6>h6 headline</h6>
+
+    <!-- div*3{div $}  -->
+    <div>div 1</div> <!-- Div ist nur ein Block-Element -->
+    <div>div 2</div>
+    <div>div 3</div>
+    
+    <p>p = paragraph = Absatz</p>
+    <p>p = paragraph = Absatz</p>
+    <p>p = paragraph = Absatz</p>
+
+    eins              zwei <!-- leerzeichen ist ein sonderzeichen -->
+    <pre>eins                         zwei</pre>
+
+    <hr>
+
+    <table>
+        <tr>
+            <td>Zelleninhalt</td>
+        </tr>
+    </table>
+    <br> <!-- br = break -->
+
+    vor dem Formular
+    <form></form>
+    unterdem Formular
+
+    <h2>Inline Elemente</h2>
+    normaler Fließtext <!-- Sind nur so breit wie es sein muss -->
+
+    <span>span</span><span>noch ein span</span>
+    <span>drittes span</span>
+
+    <b>b wie bolt</b>
+    <i>i wie italic</i>
+    <strong>strong = wichtig</strong>
+    <em>em = emphatisch = hervorgehoben</em>
+    <u>u wie underline</u>
+    <s>s wie strikethrough</s>
+
+    <keiner>Html überliest Tags die nicht existieren</keiner>
+    <audio controls>das audio-Tag</audio>
+    <video controls src="https://pixabay.com/de/videos/download/video-164360_small.mp4"></video>
+
+    <h2>inline-block Elemente</h2>
+    <hr>
+    <button>Button</button>
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <div>
+        <button>Button</button>
+    </div>
+    <div>
+        <button>
+            <hr>
+            <strong>Button</stong>
+            <hr> <!-- Hier kann in dem Button HTML verwendet werden -->
+        </button>
+    </div>
+    <input type="button" value="<b>Input Button</b>"> <!-- Hier kann kein HTML verwendet werden da dies ein Attribut ist-->
+
+</font> <!-- deprecated -->
+
+</body>
+</html>
