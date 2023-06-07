@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabellen</title>
+    <script>
+
+        function speichern(){
+            //console.log("speichern");
+            const tds = document.querySelectorAll("#tbl td");
+            console.log(tds);
+            tds.forEach( td => {
+                console.log(td.innerHTML);
+            } );
+        }
+
+    </script>
+</head>
+<body>
+    <h1>Tabellen</h1>
+
+    <table id="tbl" border="1" width="600">
+        <tbody>
+            <tr>
+                <td contenteditable>1.1</td>
+                <td colspan="2">1.2</td>
+                <!-- <td>1.3</td> -->
+            </tr>
+            <tr>
+                <td>2.1</td>
+                <td rowspan="2">2.2</td>
+                <td>2.3</td>
+            </tr>
+            <tr>
+                <td>3.1</td>
+                <!-- <td>3.2</td> -->
+                <td>3.3</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button onclick="speichern()">speichern</button>
+
+    <hr>
+
+
+    <!-- div>table>cap{headline}+thead>tr>th*4{head $}^^tbody>tr*10>td*4{Inhalt $}^^tfoot>tr>td*4{foot $} -->
+    <div>
+        <table>
+            <caption>headline</caption>
+            <thead>
+                <tr>
+                    <th>head 1</th>
+                    <th>head 2</th>
+                    <th>head 3</th>
+                    <th>head 4</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Inhalt 1</td>
+                    <td>Inhalt 2</td>
+                    <td>Inhalt 3</td>
+                    <td>Inhalt 4</td>
+                </tr>
+                <tr>
+                    <td>Inhalt 1</td>
+                    <td>Inhalt 2</td>
+                    <td>Inhalt 3</td>
+                    <td>Inhalt 4</td>
+                </tr>
+                <tr>
+                    <td>Inhalt 1</td>
+                    <td>Inhalt 2</td>
+                    <td>Inhalt 3</td>
+                    <td>Inhalt 4</td>
+                </tr>
+                <tr>
+                    <td>Inhalt 1</td>
+                    <td>Inhalt 2</td>
+                    <td>Inhalt 3</td>
+                    <td>Inhalt 4</td>
+                </tr>
+                <tr>
+                    <td>Inhalt 1</td>
+                    <td>Inhalt 2</td>
+                    <td>Inhalt 3</td>
+                    <td>Inhalt 4</td>
+                </tr>
+                <tr>
+                    <td>Inhalt 1</td>
+                    <td>Inhalt 2</td>
+                    <td>Inhalt 3</td>
+                    <td>Inhalt 4</td>
+                </tr>
+                <tr>
+                    <td>Inhalt 1</td>
+                    <td>Inhalt 2</td>
+                    <td>Inhalt 3</td>
+                    <td>Inhalt 4</td>
+                </tr>
+                <tr>
+                    <td>Inhalt 1</td>
+                    <td>Inhalt 2</td>
+                    <td>Inhalt 3</td>
+                    <td>Inhalt 4</td>
+                </tr>
+                <tr>
+                    <td>Inhalt 1</td>
+                    <td>Inhalt 2</td>
+                    <td>Inhalt 3</td>
+                    <td>Inhalt 4</td>
+                </tr>
+                <tr>
+                    <td>Inhalt 1</td>
+                    <td>Inhalt 2</td>
+                    <td>Inhalt 3</td>
+                    <td>Inhalt 4</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>foot 1</td>
+                    <td>foot 2</td>
+                    <td>foot 3</td>
+                    <td>foot 4</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+</body>
+</html>

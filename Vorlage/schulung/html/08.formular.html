@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulare</title>
+</head>
+<body>
+    <h1>Formulare</h1>
+
+    <a href="08.formular.html">Seite neu laden</a>
+
+    <form action="http://localhost/request.php" target="response" method="get">
+        <pre>
+    Vorname   <input type="text" name="vorname" value="Gisela" required>
+    
+    Nachname  <input type="text" name="nachname">
+
+    Plz       <input type="text" 
+                     name="plz" 
+                     pattern="[0-9]{5}"
+                     title="5 Ziffern"
+                     >
+
+              Kommentar
+              <textarea name="kommentar"></textarea>
+
+    Farben    <select name="farbe">
+                <option>Bitte auswählen</option>
+                <option value="f00">rot</option>
+                <option>grün</option>
+                <option>blau</option>
+              </select>
+
+              <input type="submit" value="senden">
+        </pre>
+    </form>
+
+
+
+    <iframe src="" name="response" frameborder="0"></iframe> 
+
+</body>
+</html>

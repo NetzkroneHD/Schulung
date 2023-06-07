@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+
+        .box {
+            padding: .5em;
+            margin: .5em 0;
+            border-radius: .5em;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>DOM</h1>
+
+    <div>div 1</div>
+
+    <article>
+        <div>div 2</div>
+        <div>div 3</div>
+        <div>div 4 
+            <div>div im div</div>
+        </div>
+    </article>
+
+    <script>
+
+        console.log(window.document);
+        document.write(document, "<hr>"); // [object HTMLDocument]
+        document.write(document.write, "<hr>"); // function write() { [native code] }
+        document.write(document.write(), "<hr>");  // undefined
+        console.log(document.head);
+        console.log(document.body);
+
+        const h1 = document.querySelector("h1");
+        console.log(h1);
+        h1.innerHTML = "Arbeiten mit dem DOM";
+
+        const fstDiv = document.querySelector("div");
+        fstDiv.innerHTML = "Erstes Div";
+
+        const allDivs = document.querySelectorAll("div");
+        console.log("allDivs", allDivs);
+
+        const allDivsInArticle = document.querySelectorAll("article > div");
+        console.log("allDivsInArticle", allDivsInArticle);
+
+        allDivsInArticle.forEach(function(el, idx){
+            console.log(el);
+            el.innerHTML = "Neuer Inhalt " + idx;
+            el.style.backgroundColor = "#" + Math.random().toString().substr(2,6);
+            el.classList.toggle("box");
+        });
+
+        
+
+    </script>
+</body>
+</html>

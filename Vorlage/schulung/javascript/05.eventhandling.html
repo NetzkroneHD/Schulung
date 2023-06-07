@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventhandling</title>
+    <link rel="stylesheet" href="../css/global.css">
+    <style>
+
+        form {
+            margin: 1em;
+        }
+
+        #content {
+            margin: 1em;
+        }
+
+    </style>
+    <script>
+
+        function msg(v){
+            alert(v);
+        }
+
+        // console.log(document.querySelector("button")); // null
+
+        ;(function(){
+            console.log("innerhalb einer IIFE");
+
+            const msg = function(v){
+                alert(v);
+            };
+
+            const clickBtnA = function(){
+                msg("Klick auf Button");
+            };
+
+            const checkForm = function(evt){
+                console.log(evt);
+                //alert(evt)
+                //console.log(eingabe);
+                if(eingabe.value === ""){
+                    msg("Feld ist leer");
+                    evt.preventDefault();
+                }
+            };
+
+            const loadData = function(){
+                fetch("https://jsonplaceholder.typicode.com/users")
+                    .then(function(response){
+                        console.log(response);
+                        if(response.ok){
+                            response.text()
+                                .then(function(data){
+                                    const content = document.querySelector("#content");
+                                    content.insertAdjacentHTML("afterbegin", "<p>" + data + "</p>");
+                                })
+                        } else {
+                            throw "Mist, Fehler!";
+                        }
+                    })
+                    .catch(function(fehler){
+                        console.log(fehler);
+                    })
+            };
+
+            const eventhandling = function(){
+                console.log("eventhandling()");
+
+                const btnA = document.querySelector("#btnA");
+
+                btnA.addEventListener("click", clickBtnA);
+
+                document.querySelector("#btnDisableBtnA").addEventListener("click", function(){
+                    btnA.removeEventListener("click", clickBtnA);
+                });
+
+                const frm = document.querySelector("#frm");
+
+                frm.addEventListener("submit", checkForm);
+
+                const btnAJAX = document.querySelector("#btnAJAX");
+                btnAJAX.addEventListener("click", loadData);
+            };
+
+            const init = function(){
+                console.log("init()");
+                eventhandling();
+            };
+
+            window.addEventListener("DOMContentLoaded", init);
+
+        })();
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Eventhandling</h1>
+
+        <nav>
+            <a href="05.eventhandling.html">Seite neu laden</a>
+            <button onclick="msg('onclick in HTML')">onclick in HTML</button>
+            <button id="btnA">click in JS (btnA)</button>
+            <button id="btnDisableBtnA">btnA deaktivieren</button>
+            <button id="btnAJAX">Externe Daten laden</button>
+        </nav>
+
+        <div id="content">
+            <div>Hier erscheint gleich der AJAX Inhalt</div>
+        </div>
+
+        <form id="frm">
+            Eingabe <input type="text" name="eingabe" id="eingabe">
+        </form>
+
+
+
+    </div>
+</body>
+</html>

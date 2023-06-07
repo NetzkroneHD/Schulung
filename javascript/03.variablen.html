@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variablen</title>
+</head>
+
+<body>
+
+    <h1>Variablen</h1>
+
+    <script>
+        // Old Style
+        // console.log(nix); Uncaught ReferenceError: nix is not defined
+
+        
+        console.log("pfau", pfau); // Hoisting Hochziehen
+        var pfau = "Pfau";
+
+        console.log(pfau);
+
+        f("vor der Deklaration")
+        function f(v) {
+            console.log(v);
+        }
+        f("nach der Deklaration")
+
+        
+        
+        // >= ES 6
+        let vorname = "Ralf";
+        console.log("vorname", vorname);
+        console.log("typ", (typeof vorname));
+        
+        const obj = {};
+        console.log("obj", obj, typeof obj);
+
+        const obj2 = new Object();
+        console.log("obj2", obj2, typeof obj2);
+
+        document.write(obj, "<hr>")
+
+        const farben = ["rot", "grün", "blau"];
+        console.log("array", farben, typeof farben);
+
+        console.log("Programmende")
+    </script>
+
+</body>
+
+</html>

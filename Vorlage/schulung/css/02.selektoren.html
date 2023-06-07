@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selektoren</title>
+    <style>
+
+        div {
+            border: 1px solid;
+            padding: .5em;   /* em = Wert vom Eltern-Element */
+            margin: .5rem 0; /* rem = Wert vom Root-Element (html), o/u und l/r */
+        }
+
+        #content {
+            background: lightblue;
+        }
+
+        .klasse {
+            background: lightpink;
+        }
+
+        .fett {
+            font-weight: bold;
+        }
+
+        /* Nachfahre Selektor */
+        .nachfahren span {
+            color: blue;
+        }
+
+        /* Kind Selektor */
+        .nachfahren > span {
+            background: lightblue;
+        }
+
+        .attribut a {
+            text-decoration: none;
+        }
+
+        .attribut a[href$=".xls"]::before {
+            color: red;
+            /* content: url(../img/xls.png) " "; */
+            content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABlVBMVEVHcEwjdjIofjdCjU08ikgugTwXTSEURR0XTSEZVSQ3hkQjdjIYUSInfTYZVSQWTCA9ikkOLxT7/fyGto9KklWzt7TU5ddLklZ/sn9IkVFTmFt+sX5KnDn+/v4xb1B6r4NJmzgwbk/l7+Xg7ODW5tZOlFhHgl1yp3dsqGt2qnldpFNOh2G81rx0q3Zlp1xXoUuWv5Zkmm7p8ek1c1JXkGe00rRRllmPtJs5d1Fuqmh4r3ZHkFGkyaNMnTzF38Dh7eFOnT9BjEGIvn1apUuPu49SoEFDkD6gyplAfVe4zsOqz6SYwZhwsGPL4MuPsaBBel57s3auyrS00LbV5tVolnyoy6fk7eXs8+yz07B5sXWAsoCwz7Di7eKoxbFgn2rc6tyvzq/d6t2exJ55qYK41Ljf69/8/fxmnHGnxK/3+vfE28R8sIRRll1Xml+sybKmyaZ2rH/B2sGjyKPk7uTP4s+51bl1rH7A2cDi7uLD28O10rXO4c7D2sPy9/Lt9O15roKqy6pyqnzY59hOlFdcnWXn8OfJ3sno//ZBAAAAGHRSTlMAQ9H+9/cZGRo6+kAbxzcM/QX+9/cc9/fg1GdJAAAAy0lEQVQY02NgAAJ+DhhgA3G5eQWsJaGAFchn5NKVgAMWoACThpaehISJtjpUgIdZWl/B0lBRTRoqwGcmYWXrYGGsCdPCKSUh4S7jaG4gjRDw9nRTsJM10nGRhgoE+Xu4OtuYKsnGVImDBKJC5Py8ZJzsfaMra4VEgQLpinJygT4yAcGpKjViIBV5GcmxYaGREeEpSXXCQIHcTBXl0qzC1or8BOU0EaBAtmxJUXlxU0NbtVJ8IsiWHHl5+TLVlvrGZtWCOKDnBNlRAAMArhsqwwK/UbAAAAAASUVORK5CYII=) " ";
+        }
+
+        .tbl {
+            --tbl-breite: 100%;
+            width: var(--tbl-breite);
+            border-collapse: collapse;
+        }
+
+        .tbl th {
+            text-align: left;
+            background: rgb(4, 59, 59);
+            color: white;
+
+            position: sticky;
+            top: 0;
+        }
+
+        .tbl th, .tbl td {
+            padding: .5em;
+        }
+
+        .tbl tbody tr {
+            transition: .5s;
+        }
+
+        .tbl tbody tr:nth-child(odd) {
+            background: lightgray;
+        }
+
+        .tbl tbody tr:nth-child(even) {
+            background: rgba(32, 178, 171, 0.476);
+        }
+
+        .tbl td {
+            width: calc(100% / 4);
+        }
+
+        .tbl tbody td:nth-child(3) {
+            text-align: right;
+        }
+
+        .tbl tbody tr:hover {
+            background: #444;
+            color: white;
+        }
+
+        
+
+    </style>
+</head>
+<body>
+    <h1>Selektoren</h1>
+
+    <div>
+        <table class="tbl">
+            <caption>headline</caption>
+            <thead>
+                <tr>
+                    <th>head 1</th>
+                    <th>head 2</th>
+                    <th>head 3</th>
+                    <th>head 4</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Inhalt 1</td>
+                    <td>Inhalt 2</td>
+                    <td>1.234,56 €</td>
+                    <td>Inhalt 4</td>
+                </tr>
+                <tr>
+                    <td>Inhalt 1</td>
+                    <td>Inhalt 2</td>
+                    <td>1,56 €</td>
+                    <td>Inhalt 4</td>
+                </tr>
+                <tr>
+                    <td>Inhalt 1</td>
+                    <td>Inhalt 2</td>
+                    <td>234,56 €</td>
+                    <td>Inhalt 4</td>
+                </tr>
+                <tr>
+                    <td>Inhalt 1</td>
+                    <td>Inhalt 2</td>
+                    <td>1.2345,56 €</td>
+                    <td>Inhalt 4</td>
+                </tr>
+                <tr>
+                    <td>Inhalt 1</td>
+                    <td>Inhalt 2</td>
+                    <td>1.234,56 €</td>
+                    <td>Inhalt 4</td>
+                </tr>
+                <tr>
+                    <td>Inhalt 1</td>
+                    <td>Inhalt 2</td>
+                    <td>1.234,56 €</td>
+                    <td>Inhalt 4</td>
+                </tr>
+                <tr>
+                    <td>Inhalt 1</td>
+                    <td>Inhalt 2</td>
+                    <td>1.234,56 €</td>
+                    <td>Inhalt 4</td>
+                </tr>
+                <tr>
+                    <td>Inhalt 1</td>
+                    <td>Inhalt 2</td>
+                    <td>1.234,56 €</td>
+                    <td>Inhalt 4</td>
+                </tr>
+                <tr>
+                    <td>Inhalt 1</td>
+                    <td>Inhalt 2</td>
+                    <td>1.234,56 €</td>
+                    <td>Inhalt 4</td>
+                </tr>
+                <tr>
+                    <td>Inhalt 1</td>
+                    <td>Inhalt 2</td>
+                    <td>1.234,56 €</td>
+                    <td>Inhalt 4</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>foot 1</td>
+                    <td>foot 2</td>
+                    <td>foot 3</td>
+                    <td>foot 4</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <div>Element Selektor</div>
+
+    <div id="content">ID Selektor</div>
+
+    <div class="klasse">Klassen Selektor</div>
+    <div class="klasse fett">Klassen Selektor in fett</div>
+
+    <span>span im body</span>
+
+    <div class="nachfahren">
+        div.nachfahren 
+        <span>span in .nachfahren</span>
+        <p>
+            Absatz mit p in .nachfahren
+            <span>span im Absatz</span>
+        </p>
+        <span>span in .nachfahren</span>
+    </div>
+
+    <div class="attribut">
+        Attribut Selektor
+        <p>
+            <a href="#datei.xls">Excel Datei</a>
+        </p>
+        <p>
+            <a href="#datei">irgendein Link</a>
+        </p>
+    </div>
+
+    <!-- ul>li*50{Platzfresser} -->
+    <ul>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+        <li>Platzfresser</li>
+    </ul>
+
+</body>
+</html>

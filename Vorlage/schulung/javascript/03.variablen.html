@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variablen</title>
+</head>
+<body>
+    <h1>Variablen</h1>
+    <script>
+
+        // console.log(nix);  // Uncaught ReferenceError: nix is not defined
+
+        // Old Style
+        console.log("v", v);  // Hoisting / Hochziehen
+        var v = "Pfau";
+        var v = "Pfau";
+        var v = "Noch ein Pfau";
+        console.log("v", v);
+        
+
+        f("vor der Deklaration");  // Funktioniert, wg des Hoistings
+
+        function f(v) {
+            console.log(v);
+        }
+
+        f("nach der Deklaration");
+        
+
+        // >= ES 6
+
+        //console.log("vorname", vorname); // Uncaught ReferenceError: can't access lexical declaration 'vorname' before initialization
+        let vorname = "Ralf";
+        //let vorname = "Ralf";  // Uncaught SyntaxError: redeclaration of let vorname
+        vorname = "Gisela";
+        console.log("vorname", vorname, typeof vorname);
+        vorname = 4711;
+        console.log("vorname", vorname, typeof vorname);
+
+        console.log("f", f, typeof f);
+        f = "Äff";  // Ups... Funktion überschrieben!
+        // f("äff"); // Uncaught TypeError: f is not a function
+
+
+        const MWST = 19;
+        console.log("MWST", MWST, typeof MWST);
+
+        const obj = {};
+        console.log("obj", obj, typeof obj);
+
+        const obj2 = new Object();
+        console.log("obj2", obj2, typeof obj2);
+
+        document.write(obj, "<hr>");
+
+
+        const farben = ["rot","grün","blau"];
+        //farben = "bunt"; // Uncaught TypeError: invalid assignment to const 'farben'
+        //farben = [];
+        farben[0] = "RAT";
+        
+        console.log(farben, typeof farben);
+        console.log("farben.length", farben.length);
+        
+        const namen = new Array("Ralf","Gisela");
+        console.log("namen", typeof namen, namen.constructor.name);
+
+        
+        console.log("Programmende");
+
+    </script>
+</body>
+</html>

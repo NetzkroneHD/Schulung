@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <link rel="stylesheet" href="../css/global.css">
+
+    <style>
+        .box {
+            padding: 05.em;
+            margin: 0.5em 0;
+            border-radius: 0.5em;
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>DOM</h1>
+
+    <div>div 1</div>
+    <div>div 2</div>
+    <div>div 3</div>
+
+    <article>
+        <div>div-article 1</div>
+        <div>div-article 2
+            <div>div-div-article 3</div>
+        </div>
+    </article>
+
+    <script>
+        console.log(window.document.head);
+        document.write(document, "<hr>")
+        document.write(document.write, "<hr>") // Methode wird zurückgeben
+        document.write(document.write(), "<hr>") // Methode wird ausgeführt und Wert wird zurückgegeben
+
+        const h1 = document.querySelector("h1") // Element-Selektor -> man kann fast alle CSS Selektoren verwenden
+        h1.innerHTML = "arbeiten mit dem DOM"
+        console.log(h1);
+
+        const div = document.querySelector("div")
+        div.innerHTML = div.innerHTML + " nur eins"
+
+        const divs = document.querySelectorAll("div") // Element-Selektor -> Alle Elemente werden ausgewählt
+        console.log(divs);
+
+        divs.forEach(div => div.innerHTML = div.innerHTML + " test");
+        divs.forEach(function (div, index) {
+            console.log(index + ":", div.innerHTML)
+            div.style.color = "black"
+            div.style.backgroundColor = "rgb("+generateRandom()+", "+generateRandom()+", "+generateRandom()+")"
+            div.style.width = "80%";
+            div.style.transition = "450ms"
+            div.classList.toggle("box");
+            window.setInterval(exec => {
+                div.style.backgroundColor = "rgb("+generateRandom()+", "+generateRandom()+", "+generateRandom()+")"
+            }, 500);
+        })
+
+        
+
+        const articleDivs = document.querySelectorAll("article > div") // Nur divs direkt unter dem article | wenn ohne > dann werden alle divs unter article ausgewählt
+        console.log("articleDivs", articleDivs);
+
+        function generateRandom(maxLimit = 255) {
+            let rand = Math.random() * maxLimit;
+            rand = Math.floor(rand);
+
+            return rand;
+        }
+
+    </script>
+</body>
+
+</html>

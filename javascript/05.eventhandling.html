@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventhandling</title>
+    <link rel="stylesheet" href="../css/global.css">
+    <style>
+        form {
+            margin: 1em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        function msg(v) {
+            alert(v);
+        }
+
+        console.log(document.querySelector("button")); // null
+
+        ; (function () {
+
+            console.log("innerhalb einer IIFE");
+
+            const msg = function (v) {
+                alert(v);
+            }
+
+            const checkForm = (evt) => {
+                console.log(evt);
+                console.log(eingabe);
+                if(eingabe.value === "") {
+                    alert("Eingabe ist leer.");
+                    evt.preventDefault();
+                }
+            }
+            
+            const loadData = (evt) => {
+                console.log("loadData()", evt);
+                fetch("https://jsonplaceholder.typicode.com/photos").then(res => {
+                    console.log(res);
+                    if(res.ok) {
+                        res.text().then(text => {
+                            document.querySelector("#content").insertAdjacentHTML("afterbegin", "<p>"+text)
+                        });
+                        return;
+                    }
+                    throw "Eingabe ist leer."
+                }).catch(e => {
+                    console.log("Fehler:", e);
+                });
+
+            }
+
+            const eventHandling = function () {
+                console.log("eventHandling()");
+
+                document.querySelector("#btnA")
+                    .addEventListener("click", (event) => {
+                        console.log("click-event", event);
+                        msg("click in JS");
+                });
+
+                document.querySelector("#frm").addEventListener("submit", checkForm);
+
+                document.querySelector("#btnAjax").addEventListener("click", loadData)
+            }
+
+            const init = function () {
+                console.log("init()");
+                eventHandling();
+            };
+
+
+            window.addEventListener("DOMContentLoaded", init);
+
+        })();
+
+    </script>
+
+    <h1>Eventhandling</h1>
+    <div id="container">
+        <nav>
+            <a href="05.eventhandling.html">Seite neu laden</a>
+            <button onclick="msg('onclick in HTML')">onclick in HTML</button>
+            <button id="btnA">click in JS</button>
+            <button id="btnAjax">Externe Daten laden</button>
+        </nav>
+        
+        <form id="frm" method="get">
+            Eingabe <input type="text" name="eingabe" id="eingabe">
+        </form>
+    
+        <div id="content">
+            <div>Hier kommt der AJAX Content rein</div>
+        </div>
+    </div>
+
+</body>
+
+</html>
